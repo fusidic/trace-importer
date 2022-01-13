@@ -8,8 +8,3 @@ type Node struct {
 	MemoryUtilization float64 `json:"memoryutilization"`
 }
 
-func GetNodeList(cnt int32) (nodes []Node) {
-	// nodes
-	list := []Node{}
-	return list
-}

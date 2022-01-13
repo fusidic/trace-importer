@@ -51,7 +51,7 @@ func (n *NodeNeo4jRepository) Load(node *Node, database string) (err error) {
 }
 
 func saveNode(tx neo4j.Transaction, node *Node) (interface{}, error) {
-	query := "CREATE (:Node {})"
+	query := "CREATE (n:Node $map)"
 	parameters := map[string]interface{}{
 		"timestamp":         node.Timestamp,
 		"nodeId":            node.NodeId,
