@@ -7,4 +7,3 @@ type Node struct {
 	CPUUtilization    float64 `json:"cpuutilization"`
 	MemoryUtilization float64 `json:"memoryutilization"`
 }
-

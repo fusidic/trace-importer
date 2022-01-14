@@ -50,15 +50,18 @@ func (n *NodeNeo4jRepository) Load(node *Node, database string) (err error) {
 	return nil
 }
 
+// save Node info by layer
+// node: nodeId
+// nodeUsage: timestamp; cpuUtilization; memoryUtilization
 func saveNode(tx neo4j.Transaction, node *Node) (interface{}, error) {
-	query := "CREATE (n:Node $map)"
+	createNode := "CREATE (n:Node $map)"
 	parameters := map[string]interface{}{
 		"timestamp":         node.Timestamp,
 		"nodeId":            node.NodeId,
 		"cpuUtilization":    node.CPUUtilization,
 		"memoryUtilization": node.MemoryUtilization,
 	}
-	_, err := tx.Run(query, parameters)
+	_, err := tx.Run(createNode, parameters)
 	return nil, err
 }
 
